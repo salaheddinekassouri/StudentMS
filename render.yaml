@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: StudentMS
+    env: docker
+    plan: free
+    branch: main
+    autoDeploy: true
+    dockerfilePath: Dockerfile
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: studentms-db
+          property: CONNECTION_STRING
+      - key: DATABASE_USERNAME
+        fromDatabase:
+          name: studentms-db
+          property: USERNAME
+      - key: DATABASE_PASSWORD
+        fromDatabase:
+          name: studentms-db
+          property: PASSWORD
+
+databases:
+  - name: studentms-db
+    databaseName: studentdb
+    plan: free
+    region: oregon
