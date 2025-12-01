@@ -1,5 +1,7 @@
 package com.example.StudentMS.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,6 +24,7 @@ public class Student {
     // Many students belong to one university
     @ManyToOne
     @JoinColumn(name = "university_id")
+    @JsonManagedReference
     private University university;
 
     // Constructors
