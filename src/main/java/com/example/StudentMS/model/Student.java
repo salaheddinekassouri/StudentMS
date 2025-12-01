@@ -24,7 +24,6 @@ public class Student {
     // Many students belong to one university
     @ManyToOne
     @JoinColumn(name = "university_id")
-    @JsonManagedReference
     private University university;
 
     // Constructors

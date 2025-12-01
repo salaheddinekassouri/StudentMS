@@ -2,7 +2,7 @@ package com.example.StudentMS.model;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -25,7 +25,7 @@ public class University {
 
     // One university can have many students
     @OneToMany(mappedBy = "university", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonBackReference
+ @JsonIgnore
     private List<Student> students;
 
     // Constructors
