@@ -19,19 +19,19 @@ public class Student {
     private Long id;
 
     private String name;
-    private String department;
+    private String email;
 
     // Many students belong to one university
-    @ManyToOne
+    @ManyToOne(optional = true)
     @JoinColumn(name = "university_id")
     private University university;
 
     // Constructors
     public Student() {}
 
-    public Student(String name, String department, University university) {
+    public Student(String name, String email, University university) {
         this.name = name;
-        this.department = department;
+        this.email = email;
         this.university = university;
     }
 
@@ -44,9 +44,9 @@ public class Student {
 
     public void setName(String name) { this.name = name; }
 
-    public String getDepartment() { return department; }
+    public String getEmail() { return email; }
 
-    public void setDepartment(String department) { this.department = department; }
+    public void setEmail(String email) { this.email = email; }
 
     public University getUniversity() { return university; }
 

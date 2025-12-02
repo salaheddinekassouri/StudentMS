@@ -53,9 +53,9 @@ public class StudentController {
     }
 
     // 🔍 Search by Department
-    @GetMapping("/search/byDepartment")
-    public List<Student> getStudentsByDepartment(@RequestParam String department) {
-        return service.getStudentsByDepartment(department);
+    @GetMapping("/search/byEmail")
+    public List<Student> getStudentsByEmail(@RequestParam String email) {
+        return service.getStudentsByEmail(email);
     }
     // 🔍 Search by University
     @GetMapping("/search/byUniversity")
@@ -89,11 +89,11 @@ public class StudentController {
 public Object searchStudents(
         @RequestParam(required = false) Long id,
         @RequestParam(required = false) String name,
-        @RequestParam(required = false) String department) {
+        @RequestParam(required = false) String email) {
 
     if (id != null) return service.getStudentById(id);
     if (name != null) return service.getStudentsByName(name);
-    if (department != null) return service.getStudentsByDepartment(department);
+    if (email != null) return service.getStudentsByEmail(email);
     return service.getAllStudents();
 }
 }   

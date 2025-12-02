@@ -16,9 +16,9 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
     @Query("SELECT s FROM Student s WHERE LOWER(s.name) LIKE LOWER(CONCAT('%', :name, '%'))")
     List<Student> findByNameContainingIgnoreCase(@Param("name") String name);
 
-    // 🔍 Search by department (case-insensitive)
-    @Query("SELECT s FROM Student s WHERE LOWER(s.department) LIKE LOWER(CONCAT('%', :department, '%'))")
-    List<Student> findByDepartmentContainingIgnoreCase(@Param("department") String department);
+    // 🔍 Search by email (case-insensitive)
+    @Query("SELECT s FROM Student s WHERE LOWER(s.email) LIKE LOWER(CONCAT('%', :email, '%'))")
+    List<Student> findByEmailContainingIgnoreCase(@Param("email") String email);
 
     // 🔍 Search by university (case-insensitive)
     @Query("SELECT s FROM Student s WHERE LOWER(s.university) LIKE LOWER(CONCAT('%', :university, '%'))")

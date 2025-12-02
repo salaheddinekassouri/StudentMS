@@ -37,9 +37,9 @@ public class StudentService {
         return repository.findByNameContainingIgnoreCase(name);
     }
 
-    // 🔍 Search by Department
-    public List<Student> getStudentsByDepartment(String department) {
-        return repository.findByDepartmentContainingIgnoreCase(department);
+    // 🔍 Search by Email
+    public List<Student> getStudentsByEmail(String email) {
+        return repository.findByEmailContainingIgnoreCase(email);
     }
     // 🔍 Search by University
     public List<Student> getStudentsByUniversity(String university) {
